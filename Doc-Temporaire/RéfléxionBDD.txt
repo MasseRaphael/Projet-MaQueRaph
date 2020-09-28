@@ -1,0 +1,66 @@
+Tables :
+ - Utilisateurs
+ - Vidéos
+ - Commentaires
+ - Annonces
+ - Playlist
+ - Catégories
+ - Live ?
+
+Utilisateurs:
+ - Id
+ - Pseudos
+ - Email
+ - Mot de passe
+ - Role
+ - Vidéos (null)
+ - Commentaires (null)
+
+Vidéos :
+ - Id
+ - Titre
+ - Desription
+ - Id_youtube
+ - Date_création
+ - Date_mise_a_jour
+ - Date_sortie_youtube
+ - Image_featured
+ - Commentaires (null)
+ - Slug ?
+ - Utilisateurs
+ - Playlist
+ - Catégories
+ - Nom_Jeu
+
+Commentaires :
+ - Id
+ - Utilisateurs
+ - Contenu
+ - Date
+
+Annonces :
+ - Id
+ - Titre
+ - Utilisateurs
+ - Date_création
+ - Date_mise_a_jour
+ - Contenu
+ - Slug ?
+
+Playlist :
+ - Id
+ - Titre
+ - Description
+ - Image_featured
+ - Date_création
+ - Date_mise_a_jour
+ - Vidéos
+
+Catégories :
+ - Id
+ - Nom
+ - Vidéos
+
+Live :
+ - Id
+ - Pseudos_Streamer

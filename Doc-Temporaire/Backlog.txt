@@ -1,0 +1,9 @@
+Template :
+Titre : qui décrit l'action de la user story
+En tant que "Rôles" Je peux "Action" Afin de "résultat de l'action"
+Test d'acceptation : Description de ce qui valide la user story
+
+Ex :
+Inscription de l'utilisateur
+En tant qu'utilisateur lambda Je peux m'inscrire Afin de pouvoir commenter une vidéo
+L'utilisateur a un message confirmant son inscription
