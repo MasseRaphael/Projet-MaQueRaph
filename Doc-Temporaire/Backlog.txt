@@ -5,5 +5,18 @@ Test d'acceptation : Description de ce qui valide la user story
 
 Ex :
 Inscription de l'utilisateur
-En tant qu'utilisateur lambda Je peux m'inscrire Afin de pouvoir commenter une vidéo
+En tant qu'utilisateur lambda Je peux m'inscrire Afin d'avoir le statut de Viewer
 L'utilisateur a un message confirmant son inscription
+
+Connexion de l'utilisateur
+En tant qu'utilisateur Je peux me connecter Afin d'avoir accès au fonctionnaliter pour les Viewers
+L'utilisateur est connecter
+
+Deconnexion de l'utilisateur
+En Tant qu'utilisateur Je peux me deconnecter Afin de ne plus être connecter
+L'utilisateur est deconnecter
+
+Laisser un commentaire
+En tant que Viewer Je peux laisser un commentaire Afin de commenter une vidéo
+Un commentaire est poster
+
