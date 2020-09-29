@@ -20,3 +20,7 @@ Laisser un commentaire
 En tant que Viewer Je peux laisser un commentaire Afin de commenter une vidéo
 Un commentaire est poster
 
+Accès au avant première
+En tant que "Super-Viewer" Je peux accéder à la section avant première Afin de voir une vidéos en avant première
+Le "Super-Viewer" à accès aux avant premières
+
