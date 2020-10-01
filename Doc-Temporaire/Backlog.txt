@@ -35,3 +35,11 @@ Le commentaire est supprimé
 Ajouter une annonce
 En tant que Modérateur Je peux publier une annonce Afin d'informer les utilisateurs sur divers points
 Une annonce est publiée
+
+Ajouter une vidéo
+En tant qu'Admin Je peux publier une nouvelle vidéo Afin de sortir une nouvelle vidéo
+Une vidéo est ajoutée
+
+Créer une playlist
+En tant qu'Admin Je peux créer une playlist Afin de commencer une nouvelle série
+Une playlist est créée

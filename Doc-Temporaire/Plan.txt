@@ -3,7 +3,7 @@ Annonces
 Historique
 Playlist
 Avant-Première
-Live ? quand la chaine twitch existera in tégration par script ou iframe avec le chat et pourquoi pas intégré les chaînes des copain
+Live ? quand la chaine twitch existera intégration par iframe avec le chat et pourquoi pas intégré les chaînes des copains
 L'équipe
 
 cf gloomaps temporaire join
