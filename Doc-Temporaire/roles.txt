@@ -1,4 +1,4 @@
 Admin : Rôle atribuer à moi même et mes amis avec qui j'ai lancer la chaîne Youtube pour gérer le site
-Moderateur : Personnes de confiance qui pourra potentiellement supprimer les commentaires desobligeant et peut être ajouter des annaces au site (encore à décider)
+Moderateur : Personnes de confiance qui pourra potentiellement supprimer les commentaires desobligeant et peut être ajouter des annonces au site (encore à décider)
 Super-Viewer : Rôles potentiel d'un utilisateur avec des privilèges comme par exemple un accées au vidéos en avant première
 Viewer : Rôle d'utilisateur inscrit

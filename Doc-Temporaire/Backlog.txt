@@ -24,3 +24,14 @@ Accès au avant première
 En tant que "Super-Viewer" Je peux accéder à la section avant première Afin de voir une vidéos en avant première
 Le "Super-Viewer" à accès aux avant premières
 
+Voir les anciennes annonces
+En tant que Viewer Je peux avoir accès aux vielles annonces Afin d'être au courant d'information que j'ai peut être loupé
+L'utilisateur a accès à la page annonces
+
+Supprimer un commentaire
+En tant que Modérateur Je peux supprimer un commentaire Afin de garder un espace "propre"
+Le commentaire est supprimé
+
+Ajouter une annonce
+En tant que Modérateur Je peux publier une annonce Afin d'informer les utilisateurs sur divers points
+Une annonce est publiée
