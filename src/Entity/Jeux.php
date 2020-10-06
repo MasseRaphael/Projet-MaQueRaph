@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\JeuxRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -22,6 +24,16 @@ class Jeux
      */
     private $nom_jeu;
 
+    /**
+     * @ORM\ManyToMany(targetEntity=Videos::class, mappedBy="jeux")
+     */
+    private $videos;
+
+    public function __construct()
+    {
+        $this->videos = new ArrayCollection();
+    }
+
     public function getId(): ?int
     {
         return $this->id;
@@ -35,6 +47,34 @@ class Jeux
     public function setNomJeu(string $nom_jeu): self
     {
         $this->nom_jeu = $nom_jeu;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Videos[]
+     */
+    public function getVideos(): Collection
+    {
+        return $this->videos;
+    }
+
+    public function addVideo(Videos $video): self
+    {
+        if (!$this->videos->contains($video)) {
+            $this->videos[] = $video;
+            $video->addJeux($this);
+        }
+
+        return $this;
+    }
+
+    public function removeVideo(Videos $video): self
+    {
+        if ($this->videos->contains($video)) {
+            $this->videos->removeElement($video);
+            $video->removeJeux($this);
+        }
 
         return $this;
     }

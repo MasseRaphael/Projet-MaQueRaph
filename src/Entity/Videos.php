@@ -70,9 +70,27 @@ class Videos
      */
     private $commentaires;
 
+    /**
+     * @ORM\ManyToMany(targetEntity=Playlist::class, inversedBy="videos")
+     */
+    private $playlist;
+
+    /**
+     * @ORM\ManyToMany(targetEntity=Categories::class, inversedBy="videos")
+     */
+    private $categories;
+
+    /**
+     * @ORM\ManyToMany(targetEntity=Jeux::class, inversedBy="videos")
+     */
+    private $jeux;
+
     public function __construct()
     {
         $this->commentaires = new ArrayCollection();
+        $this->playlist = new ArrayCollection();
+        $this->categories = new ArrayCollection();
+        $this->jeux = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -214,6 +232,84 @@ class Videos
             if ($commentaire->getVideos() === $this) {
                 $commentaire->setVideos(null);
             }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Playlist[]
+     */
+    public function getPlaylist(): Collection
+    {
+        return $this->playlist;
+    }
+
+    public function addPlaylist(Playlist $playlist): self
+    {
+        if (!$this->playlist->contains($playlist)) {
+            $this->playlist[] = $playlist;
+        }
+
+        return $this;
+    }
+
+    public function removePlaylist(Playlist $playlist): self
+    {
+        if ($this->playlist->contains($playlist)) {
+            $this->playlist->removeElement($playlist);
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Categories[]
+     */
+    public function getCategories(): Collection
+    {
+        return $this->categories;
+    }
+
+    public function addCategory(Categories $category): self
+    {
+        if (!$this->categories->contains($category)) {
+            $this->categories[] = $category;
+        }
+
+        return $this;
+    }
+
+    public function removeCategory(Categories $category): self
+    {
+        if ($this->categories->contains($category)) {
+            $this->categories->removeElement($category);
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Jeux[]
+     */
+    public function getJeux(): Collection
+    {
+        return $this->jeux;
+    }
+
+    public function addJeux(Jeux $jeux): self
+    {
+        if (!$this->jeux->contains($jeux)) {
+            $this->jeux[] = $jeux;
+        }
+
+        return $this;
+    }
+
+    public function removeJeux(Jeux $jeux): self
+    {
+        if ($this->jeux->contains($jeux)) {
+            $this->jeux->removeElement($jeux);
         }
 
         return $this;

@@ -1,13 +1,13 @@
 Tables :
- - Utilisateurs
- - Vidéos
- - Commentaires
- - Annonces
- - Playlist
- - Catégories
- - Live ?
+ - Utilisateurs v
+ - Vidéos       v
+ - Commentaires v
+ - Annonces     v
+ - Playlist     v
+ - Catégories   v
+ - Live 
  - Bannis ?
- - jeux
+ - jeux         v
 
 Utilisateurs:
  - Id
