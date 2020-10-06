@@ -7,6 +7,7 @@ Tables :
  - Catégories
  - Live ?
  - Bannis ?
+ - jeux
 
 Utilisateurs:
  - Id
@@ -27,7 +28,7 @@ Vidéos :
  - Date_sortie_youtube
  - Image_featured
  - Commentaires (null)
- - Slug ?
+ - Slug
  - Utilisateurs
  - Playlist
  - Catégories
@@ -46,7 +47,7 @@ Annonces :
  - Date_création
  - Date_mise_a_jour
  - Contenu
- - Slug ?
+ - Slug
 
 Playlist :
  - Id
@@ -65,3 +66,7 @@ Catégories :
 Live :
  - Id
  - Pseudos_Streamer
+
+jeux :
+ - Id
+ - Nom_Jeu
