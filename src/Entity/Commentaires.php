@@ -32,6 +32,18 @@ class Commentaires
      */
     private $created_at;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Videos::class, inversedBy="commentaires")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $videos;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Users::class, inversedBy="commentaires")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $users;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -69,6 +81,30 @@ class Commentaires
     public function setCreatedAt(\DateTimeInterface $created_at): self
     {
         $this->created_at = $created_at;
+
+        return $this;
+    }
+
+    public function getVideos(): ?Videos
+    {
+        return $this->videos;
+    }
+
+    public function setVideos(?Videos $videos): self
+    {
+        $this->videos = $videos;
+
+        return $this;
+    }
+
+    public function getUsers(): ?Users
+    {
+        return $this->users;
+    }
+
+    public function setUsers(?Users $users): self
+    {
+        $this->users = $users;
 
         return $this;
     }

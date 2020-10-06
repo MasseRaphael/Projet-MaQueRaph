@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\UsersRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
 
@@ -38,6 +40,22 @@ class Users implements UserInterface
      * @ORM\Column(type="string", length=30)
      */
     private $pseudo;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Videos::class, mappedBy="users")
+     */
+    private $videos;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Commentaires::class, mappedBy="users", orphanRemoval=true)
+     */
+    private $commentaires;
+
+    public function __construct()
+    {
+        $this->videos = new ArrayCollection();
+        $this->commentaires = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -125,6 +143,68 @@ class Users implements UserInterface
     public function setPseudo(string $pseudo): self
     {
         $this->pseudo = $pseudo;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Videos[]
+     */
+    public function getVideos(): Collection
+    {
+        return $this->videos;
+    }
+
+    public function addVideo(Videos $video): self
+    {
+        if (!$this->videos->contains($video)) {
+            $this->videos[] = $video;
+            $video->setUsers($this);
+        }
+
+        return $this;
+    }
+
+    public function removeVideo(Videos $video): self
+    {
+        if ($this->videos->contains($video)) {
+            $this->videos->removeElement($video);
+            // set the owning side to null (unless already changed)
+            if ($video->getUsers() === $this) {
+                $video->setUsers(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Commentaires[]
+     */
+    public function getCommentaires(): Collection
+    {
+        return $this->commentaires;
+    }
+
+    public function addCommentaire(Commentaires $commentaire): self
+    {
+        if (!$this->commentaires->contains($commentaire)) {
+            $this->commentaires[] = $commentaire;
+            $commentaire->setUsers($this);
+        }
+
+        return $this;
+    }
+
+    public function removeCommentaire(Commentaires $commentaire): self
+    {
+        if ($this->commentaires->contains($commentaire)) {
+            $this->commentaires->removeElement($commentaire);
+            // set the owning side to null (unless already changed)
+            if ($commentaire->getUsers() === $this) {
+                $commentaire->setUsers(null);
+            }
+        }
 
         return $this;
     }

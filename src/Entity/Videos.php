@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\VideosRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -56,6 +58,22 @@ class Videos
      * @ORM\Column(type="datetime")
      */
     private $date_sortie_youtube;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Users::class, inversedBy="videos")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $users;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Commentaires::class, mappedBy="videos", orphanRemoval=true)
+     */
+    private $commentaires;
+
+    public function __construct()
+    {
+        $this->commentaires = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -154,6 +172,49 @@ class Videos
     public function setDateSortieYoutube(\DateTimeInterface $date_sortie_youtube): self
     {
         $this->date_sortie_youtube = $date_sortie_youtube;
+
+        return $this;
+    }
+
+    public function getUsers(): ?Users
+    {
+        return $this->users;
+    }
+
+    public function setUsers(?Users $users): self
+    {
+        $this->users = $users;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Commentaires[]
+     */
+    public function getCommentaires(): Collection
+    {
+        return $this->commentaires;
+    }
+
+    public function addCommentaire(Commentaires $commentaire): self
+    {
+        if (!$this->commentaires->contains($commentaire)) {
+            $this->commentaires[] = $commentaire;
+            $commentaire->setVideos($this);
+        }
+
+        return $this;
+    }
+
+    public function removeCommentaire(Commentaires $commentaire): self
+    {
+        if ($this->commentaires->contains($commentaire)) {
+            $this->commentaires->removeElement($commentaire);
+            // set the owning side to null (unless already changed)
+            if ($commentaire->getVideos() === $this) {
+                $commentaire->setVideos(null);
+            }
+        }
 
         return $this;
     }
