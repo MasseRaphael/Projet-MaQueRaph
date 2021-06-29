@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Videos index{% endblock %}
+
+{% block body %}
+    <h1>Videos index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Titre</th>
+                <th>Slug</th>
+                <th>Description</th>
+                <th>Id_youtube</th>
+                <th>Created_at</th>
+                <th>Updated_at</th>
+                <th>Featured_image</th>
+                <th>Date_sortie_youtube</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for video in videos %}
+            <tr>
+                <td>{{ video.id }}</td>
+                <td>{{ video.titre }}</td>
+                <td>{{ video.slug }}</td>
+                <td>{{ video.description }}</td>
+                <td>{{ video.idYoutube }}</td>
+                <td>{{ video.createdAt ? video.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ video.updatedAt ? video.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ video.featuredImage }}</td>
+                <td>{{ video.dateSortieYoutube ? video.dateSortieYoutube|date('Y-m-d H:i:s') : '' }}</td>
+                <td>
+                    <a href="{{ path('videos_show', {'id': video.id}) }}">show</a>
+                    <a href="{{ path('videos_edit', {'id': video.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="10">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('videos_new') }}">Create new</a>
+{% endblock %}
